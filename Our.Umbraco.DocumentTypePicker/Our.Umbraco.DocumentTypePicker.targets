@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Our_Umbraco_DocumentTypePicker Include="$(MSBuildProjectDirectory)\..\packages\Our.Umbraco.DocumentTypePicker.1.0.0\Content\App_Plugins\**\*.*"/>
+  </ItemGroup>
+
+  <Target Name="Our_Umbraco_DocumentTypePicker_CopyFiles" BeforeTargets="PrepareForBuild">
+    <Message Text="Copying Our.Umbraco.DocumentTypePicker files to project" />
+    <Copy
+        SourceFiles="@(Our_Umbraco_DocumentTypePicker)"
+        DestinationFiles="@(Our_Umbraco_DocumentTypePicker->'.\App_Plugins\%(RecursiveDir)%(Filename)%(Extension)')"
+        />
+  </Target>
+</Project>
